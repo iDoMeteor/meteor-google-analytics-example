@@ -9,7 +9,7 @@ if (Meteor.isClient) {
   // Events that happen on DOM elements inside the "hello" template
   Template.hello.events({
 
-    'click button': function() {
+    'click button': function () {
       // increment the counter when button is clicked
       Session.set('counter', Session.get('counter') + 1);
 
@@ -31,7 +31,7 @@ if (Meteor.isClient) {
   Template.hello.helpers({
 
     // Retrieves counter value from session and passes it to template
-    counter: function() {
+    counter: function () {
       var count = Session.get('counter') || 0;
       if (10 < count) {
         Session.set('warn', true);
@@ -40,7 +40,7 @@ if (Meteor.isClient) {
     },
 
     // Retrieves counter value from session and passes it to template
-    warning: function() {
+    warning: function () {
       var count = Session.get('counter');
       if (10 < count) {
         return true;
@@ -51,7 +51,7 @@ if (Meteor.isClient) {
   });
 
   // Code to execute when the "hello" template is rendered for presentation to client
-  Template.hello.onRendered(function() {
+  Template.hello.onRendered(function () {
 
     // This is where we really want to do this, but Google can be too slow
     /*
@@ -67,7 +67,7 @@ if (Meteor.isClient) {
 // Runs when Meteor starts up and executes code in server context
 if (Meteor.isServer) {
 
-  Meteor.startup(function() {
+  Meteor.startup(function () {
 
     console.log('Meteor.startup has fired on the server,'
                 + ' you may now load it in your browser!');
@@ -75,23 +75,3 @@ if (Meteor.isServer) {
   });
 
 }
-
-// iDM Waiting for Google cheater
-(function idmGACheat (x) {
-  var x = x * 2 || 100;
-  // This can take *forever* sometimes
-  if (180000 < x) {
-    console.log('iDM-GA ERROR: Google script did not complete loading');
-    return;
-  }
-  Meteor.setTimeout(function() {
-    if (
-        ('function' == typeof (ga))
-        && ('function' == typeof (gaPageview))
-    ) {
-      gaPageview();
-    } else {
-      idmGACheat(x);
-    }
-  }, x);
-})(); // i<3Meteor
