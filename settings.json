@@ -1,0 +1,18 @@
+{
+  "public": {
+    "google": {
+      "account": "UA-23671882-14",
+      "cookie": {
+        "auto": "true",
+        "domain": "false",
+        "expires": "false",
+        "name": "false",
+        "localMode": "false"
+      },
+      "debug": "false",
+      "enable": "true",
+      "trackInPage": "false",
+      "trackInterests": "false"
+    }
+  }
+}
